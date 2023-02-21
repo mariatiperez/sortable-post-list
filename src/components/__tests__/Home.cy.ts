@@ -30,15 +30,14 @@ const body = [
   },
 ] as ListItemI[];
 
-beforeEach(() => {
-  cy.intercept("GET", "**/posts", {
-    statusCode: 201,
-    body,
-  });
-  cy.mount(Home);
-});
-
 describe("Home", () => {
+  beforeEach(() => {
+    cy.intercept("GET", "**/posts", {
+      statusCode: 201,
+      body,
+    });
+    cy.mount(Home);
+  });
   it("should move Post 1 down", () => {
     // Click action button
     cy.get("[data-cy='down-button']").first().click();
@@ -113,5 +112,22 @@ describe("Home", () => {
     cy.get("[data-cy='cell-title']").each((item, index) => {
       cy.wrap(item).should("contain", `Post ${expectedOutpt[index].id}`);
     });
+  });
+});
+describe("Home Error Handling", () => {
+  it("should render if network fails", () => {
+    cy.intercept("GET", "**/posts", {
+      statusCode: 500,
+      body: "Internal Server Error",
+    });
+    cy.mount(Home);
+  });
+
+  it("should render if posts are empty", () => {
+    cy.intercept("GET", "**/posts", {
+      statusCode: 200,
+      body: [],
+    });
+    cy.mount(Home);
   });
 });

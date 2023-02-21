@@ -1,6 +1,20 @@
 <template>
-  <div>
-    <h1 class="font-medium text-lg text-white">Sortable Post List</h1>
+  <div class="h-min">
+    <h1 class="text-lg font-medium text-white">
+      Sortable Post List
+
+      <span class="group relative">
+        <div class="inline cursor-pointer">
+          <i class="fa-solid fa-circle-question" />
+        </div>
+        <span
+          class="tooltip-arrow pointer-events-none absolute left-8 -top-6 z-10 w-60 rounded-md border-transparent bg-neutral-100 p-2 text-xs font-normal text-neutral-700 opacity-0 shadow-md transition-opacity group-hover:opacity-100"
+        >
+          Use the arrows to move the posts up and down and click on time travel
+          to revert an action and the subsequent actions
+        </span>
+      </span>
+    </h1>
     <TransitionGroup tag="ul">
       <ListItem
         v-for="(item, index) in list"
@@ -11,6 +25,21 @@
         @move="$emit('move', { ...$event, index, item })"
         data-cy="list-item"
       />
+      <div
+        class="m-5 flex flex-col items-start rounded bg-white p-2 drop-shadow"
+        v-if="list.length == 0"
+        data-cy="empty-list-message"
+      >
+        <span>
+          Something happened, we don't have any posts to display
+          <img
+            class="inline h-10 pl-5"
+            src="/cat.png"
+            alt="Sad Cat"
+            srcset=""
+          />
+        </span>
+      </div>
     </TransitionGroup>
   </div>
 </template>

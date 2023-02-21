@@ -9,6 +9,10 @@ const apiClient: AxiosInstance = axios.create({
   },
 });
 
-export const getList = (): Promise<ListItemI[]> => {
-  return apiClient.get("/posts").then(({ data }) => data.slice(0, 5));
+export const getList = async (): Promise<ListItemI[]> => {
+  try {
+    return (await apiClient.get("/posts")).data?.slice(0, 5);
+  } catch (e) {
+    return [];
+  }
 };

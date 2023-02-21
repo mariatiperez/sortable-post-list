@@ -33,6 +33,13 @@ const props = {
 };
 
 describe("SortableList", () => {
+  it("should render message if list is empty", () => {
+    cy.mount(SortableList, {
+      props: { list: [] },
+    });
+    cy.get("[data-cy='empty-list-message']").should("exist");
+  });
+
   it("should render list properly with props", () => {
     cy.mount(SortableList, {
       props,
