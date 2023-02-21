@@ -3,12 +3,16 @@
     <h1 class="rounded-t border-gray bg-white py-3 px-6 text-lg font-medium">
       List of actions committed
     </h1>
-    <div class="divide-y divide-gray p-6">
+    <div
+      class="max-h-[25vh] divide-y divide-gray overflow-y-auto p-6 md:max-h-[45vh]"
+    >
       <TransitionGroup name="fade">
         <TimelineItem
           v-for="(item, index) in timeline"
           :key="`timeline-item-${item.itemId}-${item.timestamp}`"
-          v-bind="item"
+          :item-id="item.itemId"
+          :prev-index="item.prevIndex"
+          :curr-index="item.currIndex"
           :class="{
             'rounded-t': index === 0,
             'rounded-b': index === timeline.length - 1,
@@ -16,11 +20,16 @@
           @travel="$emit('travel', index)"
           data-cy="timeline-item"
         />
-        <span v-if="timeline.length == 0"
-          >No actions to display <i class="fa-solid fa-circle-info"></i>
-          <i class="fa-solid fa-circle-exclamation text-danger"></i>
-          <i class="fa-regular fa-triangle-exclamation"></i>
-        </span>
+        <div v-if="timeline.length == 0" class="flex flex-col text-center">
+          <span>
+            No actions to display <br />
+            Click on the arrows to get started <br />
+          </span>
+          <span>
+            <i class="fa-solid fa-chevron-up self-center text-primary" /> /
+            <i class="fa-solid fa-chevron-down self-center text-primary" />
+          </span>
+        </div>
       </TransitionGroup>
     </div>
   </div>

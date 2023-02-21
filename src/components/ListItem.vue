@@ -1,6 +1,6 @@
 <template>
   <div
-    class="transition-all duration-300 rounded bg-white drop-shadow p-3 my-5 flex flex-row justify-between h-[70px]"
+    class="my-5 flex h-[70px] flex-row justify-between rounded bg-white p-3 drop-shadow transition-all duration-300"
   >
     <span class="self-center" data-cy="cell-title"> Post {{ id }} </span>
     <div
@@ -9,7 +9,7 @@
     >
       <button
         v-if="allowUp"
-        class="rounded text-primary py-1 flex"
+        class="flex rounded py-1 text-primary"
         @click="$emit('move', { direction: 'up' })"
         data-cy="up-button"
       >
@@ -17,7 +17,7 @@
       </button>
       <button
         v-if="allowDown"
-        class="rounded text-primary py-1 flex"
+        class="flex rounded py-1 text-primary"
         @click="$emit('move', { direction: 'down' })"
         data-cy="down-button"
       >
