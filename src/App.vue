@@ -1,5 +1,6 @@
 <template>
   <div class="font-Roboto h-full bg-gray flex justify-center">
+    <Home class="z-10" />
     <div
       class="absolute diagonal-background w-full z-0 top-0 min-h-[25%] transition-all duration-300 md:min-h-[25%] lg:min-h-[20%]"
     />
@@ -7,6 +8,7 @@
 </template>
 
 <script setup lang="ts">
+import Home from "./components/Home.vue";
 </script>
 
 <style lang="css" scoped>

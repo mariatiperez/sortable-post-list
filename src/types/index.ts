@@ -8,5 +8,11 @@ export interface TimelineItemI {
   itemId: number;
   prevIndex: number;
   currIndex: number;
-  state?: number[];
+  prevState?: number[];
+}
+
+export interface MoveI {
+  direction: "down" | "up";
+  index: number;
+  item: ListItemI;
 }

@@ -2,7 +2,7 @@
   <div
     class="bg-white drop-shadow-md p-3 flex flex-row content-center justify-between h-[60px]"
   >
-    <span class="self-center mr-2" data-cy="cell-title">
+    <span class="self-center mr-2" data-cy="timeline-cell-title">
       Moved Post {{ itemId }} from Index {{ prevIndex }} to Index
       {{ currIndex }}
     </span>

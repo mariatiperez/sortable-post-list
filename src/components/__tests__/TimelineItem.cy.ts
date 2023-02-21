@@ -11,7 +11,7 @@ describe("TimelineItem", () => {
     cy.mount(TimelineItem, {
       props,
     });
-    cy.get("[data-cy='cell-title']").should(
+    cy.get("[data-cy='timeline-cell-title']").should(
       "contain",
       `Moved Post ${props.itemId} from Index ${props.prevIndex} to Index ${props.currIndex}`
     );
