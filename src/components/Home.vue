@@ -45,6 +45,7 @@ const handleMove = ({ direction = "down", index: prevIndex, item }: MoveI) => {
     prevIndex,
     currIndex,
     prevState: [...currState.value], // Improve
+    timestamp: new Date(),
   });
 
   // Update state

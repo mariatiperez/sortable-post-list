@@ -9,6 +9,7 @@ export interface TimelineItemI {
   prevIndex: number;
   currIndex: number;
   prevState?: number[];
+  timestamp: Date;
 }
 
 export interface MoveI {
