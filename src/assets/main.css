@@ -1,3 +1,6 @@
 html, body, body>div {
   height: 100%;
 }
+html {
+  background-color: #f4f4f4
+}

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="grid h-min w-full grid-cols-1 justify-center gap-8 p-10 text-sm sm:grid-cols-2"
+    class="grid h-min w-full grid-cols-1 justify-center gap-8 p-10 text-sm md:grid-cols-2"
   >
     <SortableList :list="list" @move="handleMove" />
     <Timeline :timeline="timeline" @travel="handleTravel" />

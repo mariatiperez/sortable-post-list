@@ -7,7 +7,7 @@
       {{ currIndex }}
     </span>
     <button
-      class="w-fit self-center rounded bg-secondary p-2"
+      class="w-fit min-w-fit self-center rounded bg-secondary p-2"
       @click="$emit('travel')"
       data-cy="travel-button"
     >

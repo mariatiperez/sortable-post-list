@@ -1,8 +1,8 @@
 <template>
-  <div class="flex h-full justify-center bg-gray font-Roboto">
+  <div class="flex justify-center font-Roboto">
     <Home class="z-10" />
     <div
-      class="diagonal-background lg:min-h-[20%] absolute top-0 z-0 min-h-[25%] w-full transition-all duration-300 md:min-h-[25%]"
+      class="diagonal-background absolute top-0 z-0 min-h-[25%] w-full transition-all duration-300 md:min-h-[25%] lg:min-h-[20%]"
     />
   </div>
 </template>

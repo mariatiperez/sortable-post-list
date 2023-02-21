@@ -13,7 +13,7 @@
           <ul class="list-disc">
             <li>Use the arrows to move the posts up and down</li>
             <li>
-              Click on time travel to revert an action and the subsequent
+              Click on Time Travel to revert an action and the subsequent
               actions
             </li>
           </ul>
