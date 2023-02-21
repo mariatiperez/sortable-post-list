@@ -63,5 +63,6 @@ const handleTravel = (index: number) => {
 
   list.value = targetState.map((id) => listById[id]);
   timeline.value.splice(0, index + 1);
+  currState.value = targetState;
 };
 </script>

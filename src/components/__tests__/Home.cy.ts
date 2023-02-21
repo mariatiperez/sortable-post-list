@@ -33,8 +33,8 @@ const body = [
 describe("Home", () => {
   beforeEach(() => {
     cy.intercept("GET", "**/posts", {
-      statusCode: 201,
-      body,
+      statzusCode: 201,
+      body: [...body],
     });
     cy.mount(Home);
   });
@@ -104,16 +104,35 @@ describe("Home", () => {
     cy.get("[data-cy='down-button']").eq(2).click();
     cy.get("[data-cy='up-button']").last().click();
     cy.get("[data-cy='down-button']").first().click();
+    cy.get("[data-cy='down-button']").last().click();
+    cy.get("[data-cy='up-button']").eq(1).click();
+    cy.get("[data-cy='down-button']").last().click();
+
+    cy.get("[data-cy='travel-button']").eq(2).click();
+    const expectedOutput = [2, 1, 4, 35, 3];
+    cy.get("[data-cy='cell-title']").each((item, index) => {
+      cy.wrap(item).should("contain", `Post ${expectedOutput[index]}`);
+    });
+    cy.get("[data-cy='up-button']").last().click();
+    cy.get("[data-cy='down-button']").first().click();
+    cy.get("[data-cy='travel-button']").eq(1).click();
+    cy.get("[data-cy='cell-title']").each((item, index) => {
+      cy.wrap(item).should("contain", `Post ${expectedOutput[index]}`);
+    });
 
     cy.get("[data-cy='travel-button']").eq(1).click();
-
-    const expectedOutpt = [body[0], body[1], body[3], body[2], body[4]];
-
+    const expectedOutput1 = [1, 2, 4, 3, 35];
     cy.get("[data-cy='cell-title']").each((item, index) => {
-      cy.wrap(item).should("contain", `Post ${expectedOutpt[index].id}`);
+      cy.wrap(item).should("contain", `Post ${expectedOutput1[index]}`);
+    });
+
+    cy.get("[data-cy='travel-button']").click();
+    cy.get("[data-cy='cell-title']").each((item, index) => {
+      cy.wrap(item).should("contain", `Post ${body[index].id}`);
     });
   });
 });
+
 describe("Home Error Handling", () => {
   it("should render if network fails", () => {
     cy.intercept("GET", "**/posts", {
