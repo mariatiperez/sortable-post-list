@@ -7,12 +7,17 @@
         <div class="inline cursor-pointer">
           <i class="fa-solid fa-circle-question" />
         </div>
-        <span
-          class="tooltip-arrow pointer-events-none absolute left-8 -top-6 z-10 w-60 rounded-md border-transparent bg-neutral-100 p-2 text-xs font-normal text-neutral-700 opacity-0 shadow-md transition-opacity group-hover:opacity-100"
+        <div
+          class="tooltip-arrow pointer-events-none absolute left-8 -top-6 z-10 hidden w-60 rounded-md border-transparent bg-neutral-100 p-2 pl-6 text-xs font-normal text-neutral-700 opacity-0 shadow-md transition-opacity group-hover:opacity-100 sm:block"
         >
-          Use the arrows to move the posts up and down and click on time travel
-          to revert an action and the subsequent actions
-        </span>
+          <ul class="list-disc">
+            <li>Use the arrows to move the posts up and down</li>
+            <li>
+              Click on time travel to revert an action and the subsequent
+              actions
+            </li>
+          </ul>
+        </div>
       </span>
     </h1>
     <TransitionGroup tag="ul">
