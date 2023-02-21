@@ -1,6 +1,15 @@
 # sortable-post-list
 
-This template should help get you started developing with Vue 3 in Vite.
+Simple sortable list with Vue 3 and TailwindCss
+
+## Todo
+
+- [ ] Only the first 5 posts should be displayed.
+- [x] Cell titles should be named as `Post id`, where `id` is set by the `id` of a post on [https://jsonplaceholder.typicode.com/posts](https://jsonplaceholder.typicode.com/posts), e.g. `Post 1`.
+- [ ] The order of the posts can be changed by clicking the up/down arrows.
+- [ ] When a user changes the order of the posts, the action should be added to the top of the “List of actions committed” component on the right.
+  - e.g. When a user moves the `Post 1` below `Post 2`, then an action card saying “Moved `Post 1` from `index 0` to `index 1`” should be added to the top of the list.
+- [ ] Users can can click on the “Time Travel” button on one of the action cards, which rewinds the order of the posts as it was before that action was taken. This action should also remove the clicked action card and the action cards above that.
 
 ## Recommended IDE Setup
 
@@ -13,8 +22,8 @@ TypeScript cannot handle type information for `.vue` imports by default, so we r
 If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
 
 1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
+   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
+   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
 2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
 
 ## Customize configuration
