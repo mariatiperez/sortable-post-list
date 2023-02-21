@@ -1,9 +1,9 @@
 <template>
-  <div class="block rounded bg-gray shadow h-fit drop-shadow">
-    <h1 class="rounded-t border-gray py-3 px-6 bg-white font-medium text-lg">
+  <div class="block h-fit rounded bg-gray shadow drop-shadow">
+    <h1 class="rounded-t border-gray bg-white py-3 px-6 text-lg font-medium">
       List of actions committed
     </h1>
-    <div class="p-6 divide-y divide-gray">
+    <div class="divide-y divide-gray p-6">
       <TimelineItem
         v-for="(item, index) in timeline"
         :key="`timeline-item-${index}`"

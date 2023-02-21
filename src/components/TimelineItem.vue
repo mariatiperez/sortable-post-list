@@ -1,13 +1,13 @@
 <template>
   <div
-    class="bg-white drop-shadow-md p-3 flex flex-row content-center justify-between h-[60px]"
+    class="flex h-[60px] flex-row content-center justify-between bg-white p-3 drop-shadow-md"
   >
-    <span class="self-center mr-2" data-cy="timeline-cell-title">
+    <span class="mr-2 self-center" data-cy="timeline-cell-title">
       Moved Post {{ itemId }} from Index {{ prevIndex }} to Index
       {{ currIndex }}
     </span>
     <button
-      class="rounded bg-secondary p-2 w-fit self-center"
+      class="w-fit self-center rounded bg-secondary p-2"
       @click="$emit('travel')"
       data-cy="travel-button"
     >
