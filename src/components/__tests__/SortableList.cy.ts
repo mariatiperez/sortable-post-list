@@ -22,31 +22,31 @@ describe("SortableList", () => {
     // first
     cy.getBySelector("list-item")
       .first()
-      .find("[data-cy='down-button']")
+      .getBySelector("down-button")
       .should("exist");
     cy.getBySelector("list-item")
       .first()
-      .find("[data-cy='up-button']")
+      .getBySelector("up-button")
       .should("not.exist");
 
     //second
     cy.getBySelector("list-item")
-      .next()
-      .find("[data-cy='down-button']")
+      .eq(1)
+      .getBySelector("down-button")
       .should("exist");
     cy.getBySelector("list-item")
-      .next()
-      .find("[data-cy='up-button']")
+      .eq(1)
+      .getBySelector("up-button")
       .should("exist");
 
     // last
     cy.getBySelector("list-item")
       .last()
-      .find("[data-cy='down-button']")
+      .getBySelector("down-button")
       .should("not.exist");
     cy.getBySelector("list-item")
       .last()
-      .find("[data-cy='up-button']")
+      .getBySelector("up-button")
       .should("exist");
   });
 

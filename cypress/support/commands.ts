@@ -20,9 +20,16 @@ declare global {
   }
 }
 
-Cypress.Commands.add("getBySelector", (selector) => {
-  return cy.get(`[data-cy=${selector}]`);
-});
+Cypress.Commands.add(
+  "getBySelector",
+  { prevSubject: "optional" },
+  (subject, selector) => {
+    if (subject) {
+      return cy.wrap(subject).find(`[data-cy=${selector}]`);
+    }
+    return cy.get(`[data-cy=${selector}]`);
+  }
+);
 
 Cypress.Commands.add("findBySelector", (selector) => {
   return cy.find(`[data-cy=${selector}]`);
