@@ -61,7 +61,7 @@ describe("SortableList", () => {
     });
 
     // Move 1st post down
-    cy.clickButton("down", 0).then(() => {
+    cy.clickButton("down").then(() => {
       expect(moveEventSpy).to.be.calledOnce.calledWith({
         direction: "down",
         index: 0,

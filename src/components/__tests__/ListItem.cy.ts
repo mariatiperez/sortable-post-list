@@ -11,7 +11,7 @@ describe("ListItem", () => {
     cy.mount(ListItem, {
       props,
     });
-    cy.checkCellTitle(0, props.id);
+    cy.checkCellTitle(props.id);
   });
 
   it("should render both buttons", () => {
@@ -49,11 +49,11 @@ describe("ListItem", () => {
         onMove: moveEventSpy,
       },
     });
-    cy.clickButton("up", 0).then(() => {
+    cy.clickButton("up").then(() => {
       expect(moveEventSpy).to.be.calledOnce.calledWith({ direction: "up" });
     });
 
-    cy.clickButton("down", 0).then(() => {
+    cy.clickButton("down").then(() => {
       expect(moveEventSpy).to.be.calledTwice.calledWith({
         direction: "down",
       });

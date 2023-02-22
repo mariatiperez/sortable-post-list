@@ -13,27 +13,27 @@ describe("Home", () => {
 
   it("should move Post 1 down", function () {
     // Click action button
-    cy.clickButton("down", 0);
+    cy.clickButton("down");
 
     // Check if posts swapped properly
-    cy.checkCellTitle(1, this.list[0].id);
-    cy.checkCellTitle(0, this.list[1].id);
+    cy.checkCellTitle(this.list[0].id, 1);
+    cy.checkCellTitle(this.list[1].id);
   });
 
   it("should move post 3 down", function () {
     cy.clickButton("down", 2);
-    cy.checkCellTitle(2, this.list[3].id);
-    cy.checkCellTitle(3, this.list[2].id);
+    cy.checkCellTitle(this.list[3].id, 2);
+    cy.checkCellTitle(this.list[2].id, 3);
   });
 
   it("should move post 5 up", function () {
     cy.clickButton("up", 3);
-    cy.checkCellTitle(4, this.list[3].id);
-    cy.checkCellTitle(3, this.list[4].id);
+    cy.checkCellTitle(this.list[3].id, 4);
+    cy.checkCellTitle(this.list[4].id, 3);
   });
 
   it("should update timeline properly", () => {
-    cy.clickButton("down", 0);
+    cy.clickButton("down");
     cy.checkTimelineCellTitle(1, 0, "down");
 
     cy.clickButton("down", 2);
@@ -45,13 +45,13 @@ describe("Home", () => {
 
   it("should travel in time to the initial state", () => {
     // Move posts around
-    cy.clickButton("down", 0);
+    cy.clickButton("down");
     cy.clickButton("down", 2);
     cy.clickButton("up", 3);
 
     // Travel in time to the initial state
     cy.clickButton("travel", 2);
-    cy.clickButton("confirm", 0);
+    cy.clickButton("confirm");
 
     cy.checkPostsOrder([1, 2, 3, 4, 5]);
   });
@@ -60,36 +60,36 @@ describe("Home", () => {
     // Move posts around
     cy.clickButton("down", 2);
     cy.clickButton("up", 3);
-    cy.clickButton("down", 0);
+    cy.clickButton("down");
     cy.clickButton("down", 3);
     cy.clickButton("up", 1);
     cy.clickButton("down", 3);
 
     // Travel in time
     cy.clickButton("travel", 2);
-    cy.clickButton("confirm", 0);
+    cy.clickButton("confirm");
 
     cy.checkPostsOrder([2, 1, 4, 5, 3]);
 
     // Move posts around
     cy.clickButton("up", 3);
-    cy.clickButton("down", 0);
+    cy.clickButton("down");
 
     // Travel in time
     cy.clickButton("travel", 1);
-    cy.clickButton("confirm", 0);
+    cy.clickButton("confirm");
 
     cy.checkPostsOrder([2, 1, 4, 5, 3]);
 
     // Travel in time
     cy.clickButton("travel", 1);
-    cy.clickButton("confirm", 0);
+    cy.clickButton("confirm");
 
     cy.checkPostsOrder([1, 2, 4, 3, 5]);
 
     // Travel in time to the initial state
     cy.clickButton("travel", 0);
-    cy.clickButton("confirm", 0);
+    cy.clickButton("confirm");
 
     cy.checkPostsOrder([1, 2, 3, 4, 5]);
   });

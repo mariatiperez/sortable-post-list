@@ -45,19 +45,19 @@ describe("Timeline", () => {
 
     // first
     cy.clickButton("travel");
-    cy.clickButton("confirm", 0).then(() => {
+    cy.clickButton("confirm").then(() => {
       expect(travelEventSpy).to.be.calledOnce.calledWith(0);
     });
 
     // third
     cy.clickButton("travel", 2);
-    cy.clickButton("confirm", 0).then(() => {
+    cy.clickButton("confirm").then(() => {
       expect(travelEventSpy).to.be.calledTwice.calledWith(2);
     });
 
     // last
     cy.clickButton("travel", this.timeline.length - 1);
-    cy.clickButton("confirm", 0).then(() => {
+    cy.clickButton("confirm").then(() => {
       expect(travelEventSpy).to.be.calledThrice.calledWith(4);
     });
   });
