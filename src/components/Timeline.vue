@@ -6,7 +6,7 @@
       List of actions committed
     </h1>
     <div
-      class="overflow max-h-[425px] min-h-[70px] divide-y divide-neutral-100 p-6"
+      class="overflow max-h-[425px] min-h-[70px] divide-y divide-neutral-100 sm:p-6"
     >
       <div
         class="max-h-[380px] min-h-[70px] overflow-y-auto overflow-x-clip"

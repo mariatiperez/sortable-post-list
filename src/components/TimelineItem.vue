@@ -1,12 +1,12 @@
 <template>
   <div
-    class="flex h-[60px] flex-row content-center justify-between bg-white p-3 drop-shadow-md"
+    class="flex min-h-fit flex-row content-center justify-between bg-white p-3 shadow drop-shadow"
   >
     <span class="mr-2 self-center" data-cy="timeline-cell-title">
       Moved Post {{ itemId }} from Index {{ prevIndex }} to Index
       {{ currIndex }}
     </span>
-    <div v-if="displayConfirmationDialog" class="text-xs">
+    <div v-if="displayConfirmationDialog" class="flex flex-row text-xs">
       <button
         @click="handleTravel"
         class="mr-2 w-10 min-w-fit self-center rounded bg-primary p-2 text-white"

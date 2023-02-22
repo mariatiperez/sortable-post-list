@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mt-5 flex h-[70px] flex-row justify-between rounded bg-white p-3 drop-shadow transition-all duration-300"
+    class="mt-5 flex h-[70px] select-none flex-row justify-between rounded bg-white p-3 drop-shadow transition-all duration-300"
   >
     <span class="self-center" data-cy="cell-title"> Post {{ id }} </span>
     <div
