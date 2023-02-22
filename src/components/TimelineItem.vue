@@ -1,6 +1,6 @@
 <template>
   <article
-    class="flex min-h-fit w-full select-none flex-row content-center justify-between overflow-hidden bg-white p-3 shadow drop-shadow sm:h-16"
+    class="flex min-h-fit w-full select-none flex-row content-center justify-between bg-white p-3 shadow drop-shadow sm:h-16"
   >
     <span data-cy="timeline-cell-title" class="mr-2 self-center">
       Moved Post {{ itemId }} from index {{ prevIndex }} to index

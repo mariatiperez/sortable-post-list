@@ -11,13 +11,13 @@
           <div class="group relative ml-2">
             <i class="fa-solid fa-circle-question inline cursor-pointer" />
             <ul
-              class="pointer-events-none absolute top-7 -left-32 z-10 w-44 list-disc rounded-md border-transparent bg-neutral-100 p-2 pl-6 text-xs font-normal text-neutral-700 opacity-0 shadow-md transition-opacity group-hover:opacity-100 group-active:opacity-100 xs:w-64 sm:left-8 sm:-top-6"
+              class="pointer-events-none absolute top-7 -left-32 z-10 w-44 list-disc rounded-md border-transparent bg-neutral-100 p-2 pl-6 text-sm font-normal text-neutral-700 opacity-0 shadow-md transition-opacity group-hover:opacity-100 group-active:opacity-100 xs:w-64 sm:left-8 sm:-top-6"
             >
               <li>Use the arrows to move the posts up and down</li>
               <li>
-                Click on Time travel to rewind the posts as it was before that
-                action was taken. This will remove the clicked card and the
-                cards above that.
+                Click on <b>Time travel</b> to rewind the posts as it was before
+                that action was taken. This will remove the clicked card and the
+                cards above that
               </li>
             </ul>
           </div>
