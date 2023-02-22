@@ -2,7 +2,7 @@
   <div
     v-if="list.length == 0"
     data-cy="empty-list-message"
-    class="mt-5 flex h-[70px] flex-row justify-between rounded bg-white p-3 drop-shadow transition-all duration-300"
+    class="mb-5 flex h-10 flex-row justify-between rounded bg-white p-3 drop-shadow transition-all duration-300"
   >
     <span>
       Something happened, we don't have any posts to display

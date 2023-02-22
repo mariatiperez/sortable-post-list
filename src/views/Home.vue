@@ -1,9 +1,9 @@
 <template>
   <div
-    class="grid h-min w-full grid-cols-1 justify-center gap-8 p-10 text-sm md:grid-cols-2"
+    class="grid h-min w-full grid-cols-1 justify-center gap-10 p-10 text-sm md:grid-cols-2 lg:gap-32"
   >
     <div class="h-min">
-      <h1 class="text-lg font-medium text-white">
+      <h1 class="h-12 select-none text-lg font-medium text-white">
         Sortable Post List
         <span class="group relative">
           <div class="inline cursor-pointer">

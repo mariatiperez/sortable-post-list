@@ -1,8 +1,5 @@
 <template>
-  <div
-    v-for="n in 5"
-    class="mt-5 h-[70px] w-full rounded bg-white p-3 drop-shadow"
-  >
+  <div v-for="n in 5" class="mt-5 h-16 w-full rounded bg-white p-3 drop-shadow">
     <div
       class="flex h-full w-full animate-pulse flex-row justify-between align-middle"
     >

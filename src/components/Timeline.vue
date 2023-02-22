@@ -1,15 +1,15 @@
 <template>
   <div class="block h-fit rounded bg-neutral-100 shadow drop-shadow">
-    <h1
-      class="rounded-t border-neutral-100 bg-white py-3 px-6 text-lg font-medium"
+    <div
+      class="flex h-16 items-center rounded-t border-neutral-100 bg-white py-3 px-6 text-lg font-medium"
     >
       List of actions committed
-    </h1>
+    </div>
     <div
-      class="overflow max-h-[425px] min-h-[70px] divide-y divide-neutral-100 sm:p-6"
+      class="overflow max-h-[480px] min-h-[70px] divide-y divide-neutral-100 sm:p-6"
     >
       <div
-        class="max-h-[380px] min-h-[70px] overflow-y-auto overflow-x-clip"
+        class="max-h-[450px] min-h-[70px] overflow-y-auto overflow-x-clip"
         id="timeline"
       >
         <TransitionGroup name="fade">
