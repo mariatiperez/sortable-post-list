@@ -2,7 +2,29 @@
   <div
     class="grid h-min w-full grid-cols-1 justify-center gap-8 p-10 text-sm md:grid-cols-2"
   >
-    <SortableList :list="list" @move="handleMove" />
+    <div class="h-min">
+      <h1 class="text-lg font-medium text-white">
+        Sortable Post List
+        <span class="group relative">
+          <div class="inline cursor-pointer">
+            <i class="fa-solid fa-circle-question" />
+          </div>
+          <div
+            class="tooltip-arrow pointer-events-none absolute left-8 -top-6 z-10 hidden w-60 rounded-md border-transparent bg-neutral-100 p-2 pl-6 text-xs font-normal text-neutral-700 opacity-0 shadow-md transition-opacity group-hover:opacity-100 sm:block"
+          >
+            <ul class="list-disc">
+              <li>Use the arrows to move the posts up and down</li>
+              <li>
+                Click on Time Travel to revert an action and the subsequent
+                actions
+              </li>
+            </ul>
+          </div>
+        </span>
+      </h1>
+      <ListLoader v-if="loading" />
+      <SortableList v-else :list="list" @move="handleMove" />
+    </div>
     <Timeline :timeline="timeline" @travel="handleTravel" />
   </div>
 </template>
@@ -10,10 +32,12 @@
 <script setup lang="ts">
 import SortableList from "@/components/SortableList.vue";
 import Timeline from "@/components/Timeline.vue";
+import ListLoader from "@/components/ListLoader.vue";
 import { ref, onMounted } from "vue";
 import type { ListItemI, MoveI, TimelineItemI } from "@/types";
 import { getList } from "@/api";
 
+const loading = ref<boolean>(true);
 const list = ref<ListItemI[]>([]);
 const timeline = ref<TimelineItemI[]>([]);
 const currState = ref<number[]>([]);
@@ -21,6 +45,7 @@ let listById: { [id: number]: ListItemI } = {};
 
 onMounted(async () => {
   list.value = await getList();
+  loading.value = false;
   listById = list.value.reduce((result, listItem) => {
     result[listItem.id] = listItem;
     currState.value.push(listItem.id);

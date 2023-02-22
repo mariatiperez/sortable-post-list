@@ -1,10 +1,10 @@
 <template>
   <div
-    class="my-5 flex h-[70px] flex-row justify-between rounded bg-white p-3 drop-shadow transition-all duration-300"
+    class="mt-5 flex h-[70px] flex-row justify-between rounded bg-white p-3 drop-shadow transition-all duration-300"
   >
     <span class="self-center" data-cy="cell-title"> Post {{ id }} </span>
     <div
-      class="grid justify-end"
+      class="flex flex-col justify-center"
       :class="allowUp && allowDown ? 'grid-rows-2' : 'grid-rows-1'"
     >
       <button
