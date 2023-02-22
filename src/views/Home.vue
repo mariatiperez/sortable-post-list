@@ -15,7 +15,7 @@
             >
               <li>Use the arrows to move the posts up and down</li>
               <li>
-                Click on Time Travel to rewind the posts as it was before that
+                Click on Time travel to rewind the posts as it was before that
                 action was taken. This will remove the clicked card and the
                 cards above that.
               </li>
@@ -37,7 +37,7 @@
 import SortableList from "@/components/SortableList.vue";
 import Timeline from "@/components/Timeline.vue";
 import ListLoader from "@/components/ListLoader.vue";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, nextTick } from "vue";
 import type { ListItemI, MoveI, TimelineItemI } from "@/types";
 import { getList } from "@/api";
 
@@ -73,7 +73,7 @@ const handleMove = ({ direction = "down", index: prevIndex, item }: MoveI) => {
     itemId: item.id,
     prevIndex,
     currIndex,
-    prevState: [...currState.value], // Improve
+    prevState: [...currState.value],
     timestamp: new Date(),
   });
 
@@ -82,7 +82,7 @@ const handleMove = ({ direction = "down", index: prevIndex, item }: MoveI) => {
   currState.value[currIndex] = item.id;
 };
 
-const handleTravel = (index: number) => {
+const handleTravel = async (index: number) => {
   if (index < 0 || index >= timeline.value.length)
     throw "Selected item doesn't exist";
 
@@ -90,9 +90,14 @@ const handleTravel = (index: number) => {
 
   if (!targetState) throw "Selected item doesn't have a state to travel to";
 
+  // Order list to match with targetState
   list.value = targetState.map((id) => listById[id]);
   timeline.value.splice(0, index + 1);
   currState.value = targetState;
+
+  // Scroll timeline to the top
+  await nextTick();
+  document.getElementById("timeline")?.scrollTo({ top: 0, behavior: "smooth" });
 };
 </script>
 

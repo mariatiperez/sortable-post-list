@@ -30,5 +30,4 @@ defineProps<{
   allowUp: boolean;
   allowDown: boolean;
 }>();
-defineEmits(["move"]);
 </script>

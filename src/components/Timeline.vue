@@ -21,7 +21,7 @@
       </div>
       <div
         v-else
-        class="max-h-[430px] min-h-[70px] w-full overflow-y-auto overflow-x-clip"
+        class="relative max-h-[430px] min-h-[70px] w-full overflow-y-auto overflow-x-clip"
         id="timeline"
       >
         <TransitionGroup name="fade">
