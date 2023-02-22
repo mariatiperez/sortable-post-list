@@ -13,6 +13,6 @@ import Home from "./components/Home.vue";
 
 <style lang="css" scoped>
 .diagonal-background {
-  background: linear-gradient(to right bottom, #691edd 50%, #f4f4f4 50%);
+  background: linear-gradient(to right bottom, #6357b1 50%, #f4f4f4 50%);
 }
 </style>

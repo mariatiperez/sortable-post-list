@@ -10,13 +10,14 @@
             <i class="fa-solid fa-circle-question" />
           </div>
           <div
-            class="tooltip-arrow pointer-events-none absolute left-8 -top-6 z-10 hidden w-60 rounded-md border-transparent bg-neutral-100 p-2 pl-6 text-xs font-normal text-neutral-700 opacity-0 shadow-md transition-opacity group-hover:opacity-100 sm:block"
+            class="tooltip-arrow pointer-events-none absolute left-8 -top-6 z-10 hidden w-64 rounded-md border-transparent bg-neutral-100 p-2 pl-6 text-xs font-normal text-neutral-700 opacity-0 shadow-md transition-opacity group-hover:opacity-100 sm:block"
           >
             <ul class="list-disc">
               <li>Use the arrows to move the posts up and down</li>
               <li>
-                Click on Time Travel to revert an action and the subsequent
-                actions
+                Click on Time Travel to rewind the posts as it was before that
+                action was taken and remove the clicked card and the cards above
+                that.
               </li>
             </ul>
           </div>

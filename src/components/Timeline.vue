@@ -5,8 +5,13 @@
     >
       List of actions committed
     </h1>
-    <div class="max-h-[425px] divide-y divide-neutral-100 overflow-clip p-6">
-      <div class="max-h-[380px] overflow-y-auto overflow-x-clip" id="timeline">
+    <div
+      class="overflow max-h-[425px] min-h-[70px] divide-y divide-neutral-100 p-6"
+    >
+      <div
+        class="max-h-[380px] min-h-[70px] overflow-y-auto overflow-x-clip"
+        id="timeline"
+      >
         <TransitionGroup name="fade">
           <TimelineItem
             v-for="(item, index) in timeline"
@@ -21,7 +26,10 @@
             @travel="$emit('travel', index)"
             data-cy="timeline-item"
           />
-          <div v-if="timeline.length == 0" class="flex flex-col text-center">
+          <div
+            v-if="timeline.length == 0"
+            class="flex h-full w-full flex-col self-center text-center"
+          >
             <span>
               No actions to display <br />
               Click on the arrows to get started <br />
@@ -62,7 +70,7 @@ defineProps<{
 
 /* 3. ensure leaving items are taken out of layout flow so that moving
       animations can be calculated correctly. */
-.fade-leave-active {
+/* .fade-leave-active {
   position: absolute;
-}
+} */
 </style>
