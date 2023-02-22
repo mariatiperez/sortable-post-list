@@ -1,34 +1,33 @@
 <template>
-  <div class="overflow-hidden rounded bg-neutral-100 shadow drop-shadow">
-    <div
+  <section
+    class="h-fit overflow-hidden rounded bg-neutral-100 shadow drop-shadow"
+  >
+    <h2
       class="flex h-16 items-center border-neutral-100 bg-white py-3 px-6 text-lg font-medium"
     >
       List of actions committed
-    </div>
-    <div
-      class="max-h-[480px] min-h-[70px] divide-y divide-neutral-100 p-2 sm:p-6"
-    >
+    </h2>
+    <div class="flex max-h-[480px] min-h-[70px] items-center p-2 sm:p-6">
       <div
         v-if="timeline.length == 0"
-        class="flex h-full w-full flex-col self-center text-center"
+        class="flex h-full w-full flex-col text-center"
       >
+        No actions to display <br />
         <span>
-          No actions to display <br />
-          Click on the arrows to get started <br />
-        </span>
-        <span>
-          <i class="fa-solid fa-chevron-up self-center text-primary" /> /
-          <i class="fa-solid fa-chevron-down self-center text-primary" />
+          Click
+          <i class="fa-solid fa-circle-question text-primary" /> to see the
+          instructions
         </span>
       </div>
       <div
         v-else
-        class="max-h-[430px] min-h-[70px] overflow-y-auto overflow-x-clip"
+        class="max-h-[430px] min-h-[70px] w-full overflow-y-auto overflow-x-clip"
         id="timeline"
       >
         <TransitionGroup name="fade">
           <TimelineItem
             v-for="(item, index) in timeline"
+            data-cy="timeline-item"
             :key="`timeline-item-${item.itemId}-${item.timestamp}`"
             :item-id="item.itemId"
             :prev-index="item.prevIndex"
@@ -38,12 +37,11 @@
               'rounded-b': index === timeline.length - 1,
             }"
             @travel="$emit('travel', index)"
-            data-cy="timeline-item"
           />
         </TransitionGroup>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">

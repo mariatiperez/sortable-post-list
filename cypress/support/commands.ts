@@ -31,13 +31,13 @@ declare global {
       checkCellTitle(id: number, index?: number): Chainable<void>;
 
       /**
-       * @description Check if a post cell title contains "Moved Post {id} from Index {prevIndex} to Index {newIndex}"
+       * @description Check if a post cell title contains "Moved Post {id} from index {prevIndex} to index {newIndex}"
        * @param {number} id - Post id to check
        * @param {number} prevIndex - Previous index, before moving the post
        * @param {string} direction - Direction of the movement, "up" adds 1 to {prevIndex}, "down" subtracts 1 to {prevIndex}
        * @param {number} [index=0] - Cell index in DOM
-       * @example cy.checkTimelineCellTitle(1, 0, "down") // Check if first cell (index 0) constains "Moved Post 1 from Index 0 to Index 1"
-       * @example cy.checkTimelineCellTitle(1, 0, "down", 2) // Check if 3rd cell (index 2) constains "Moved Post 1 from Index 0 to Index 1"
+       * @example cy.checkTimelineCellTitle(1, 0, "down") // Check if first cell (index 0) constains "Moved Post 1 from index 0 to index 1"
+       * @example cy.checkTimelineCellTitle(1, 0, "down", 2) // Check if 3rd cell (index 2) constains "Moved Post 1 from index 0 to index 1"
        */
       checkTimelineCellTitle(
         id: number,
@@ -83,7 +83,7 @@ Cypress.Commands.add(
       .eq(index)
       .should(
         "contain",
-        `Moved Post ${id} from Index ${prevIndex} to Index ${newIndex}`
+        `Moved Post ${id} from index ${prevIndex} to index ${newIndex}`
       );
   }
 );

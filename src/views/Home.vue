@@ -1,20 +1,18 @@
 <template>
-  <div
-    class="grid h-min w-full grid-cols-1 justify-center gap-10 p-10 text-sm md:grid-cols-2 lg:gap-32"
-  >
-    <div class="h-min">
-      <h1
-        class="flex h-12 select-none items-center text-lg font-medium text-white"
-      >
-        Sortable Post List
-        <span class="group relative ml-2">
-          <div class="inline cursor-pointer">
-            <i class="fa-solid fa-circle-question" />
-          </div>
-          <div
-            class="pointer-events-none absolute top-7 -left-32 z-10 w-64 rounded-md border-transparent bg-neutral-100 p-2 pl-6 text-xs font-normal text-neutral-700 opacity-0 shadow-md transition-opacity group-hover:opacity-100 group-active:opacity-100 sm:left-8 sm:-top-6"
-          >
-            <ul class="list-disc">
+  <div class="flex justify-center font-Roboto">
+    <div
+      class="z-10 grid h-min w-full grid-cols-1 justify-center gap-10 p-10 text-sm md:grid-cols-2 lg:gap-32"
+    >
+      <div class="h-min">
+        <h1
+          class="flex h-12 select-none items-center text-lg font-medium text-white"
+        >
+          Sortable Post List
+          <div class="group relative ml-2">
+            <i class="fa-solid fa-circle-question inline cursor-pointer" />
+            <ul
+              class="pointer-events-none absolute top-7 -left-32 z-10 w-44 list-disc rounded-md border-transparent bg-neutral-100 p-2 pl-6 text-xs font-normal text-neutral-700 opacity-0 shadow-md transition-opacity group-hover:opacity-100 group-active:opacity-100 xs:w-64 sm:left-8 sm:-top-6"
+            >
               <li>Use the arrows to move the posts up and down</li>
               <li>
                 Click on Time Travel to rewind the posts as it was before that
@@ -23,12 +21,15 @@
               </li>
             </ul>
           </div>
-        </span>
-      </h1>
-      <ListLoader v-if="loading" />
-      <SortableList v-else :list="list" @move="handleMove" />
+        </h1>
+        <ListLoader v-if="loading" />
+        <SortableList v-else :list="list" @move="handleMove" />
+      </div>
+      <Timeline :timeline="timeline" @travel="handleTravel" />
     </div>
-    <Timeline :timeline="timeline" @travel="handleTravel" />
+    <div
+      class="diagonal-background absolute top-0 z-0 min-h-[50%] w-full transition-all duration-300 xs:min-h-[25%] md:min-h-[25%] lg:min-h-[20%]"
+    />
   </div>
 </template>
 
@@ -94,3 +95,9 @@ const handleTravel = (index: number) => {
   currState.value = targetState;
 };
 </script>
+
+<style lang="css" scoped>
+.diagonal-background {
+  background: linear-gradient(to right bottom, #6357b1 50%, #f4f4f4 50%);
+}
+</style>
