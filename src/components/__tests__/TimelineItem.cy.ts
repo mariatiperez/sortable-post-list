@@ -11,21 +11,28 @@ describe("TimelineItem", () => {
     cy.mount(TimelineItem, {
       props,
     });
-    cy.get("[data-cy='timeline-cell-title']").should(
-      "contain",
-      `Moved Post ${props.itemId} from Index ${props.prevIndex} to Index ${props.currIndex}`
-    );
-    cy.get("[data-cy='travel-button']").should("contain", "Time Travel");
+
+    cy.checkTimelineCellTitle(props.itemId, props.prevIndex, "up");
+    cy.getBySelector("travel-button").should("exist");
   });
 
   it("should emit travel event", () => {
     const travelEventSpy = cy.spy().as("travelEventSpy");
-
     cy.mount(TimelineItem, { props: { ...props, onTravel: travelEventSpy } });
-    cy.get("[data-cy='travel-button']")
-      .click()
-      .then(() => {
-        expect(travelEventSpy).to.be.calledOnce;
-      });
+
+    cy.clickButton("travel");
+    cy.clickButton("confirm").then(() => {
+      expect(travelEventSpy).to.be.calledOnce;
+    });
+  });
+
+  it("should not emit travel event", () => {
+    const travelEventSpy = cy.spy().as("travelEventSpy");
+    cy.mount(TimelineItem, { props: { ...props, onTravel: travelEventSpy } });
+
+    cy.clickButton("travel");
+    cy.clickButton("cancel").then(() => {
+      expect(travelEventSpy).not.to.be.called;
+    });
   });
 });

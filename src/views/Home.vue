@@ -10,7 +10,7 @@
             <i class="fa-solid fa-circle-question" />
           </div>
           <div
-            class="tooltip-arrow pointer-events-none absolute left-8 -top-6 z-10 hidden w-64 rounded-md border-transparent bg-neutral-100 p-2 pl-6 text-xs font-normal text-neutral-700 opacity-0 shadow-md transition-opacity group-hover:opacity-100 sm:block"
+            class="tooltip-arrow pointer-events-none absolute top-7 -left-32 z-10 w-64 rounded-md border-transparent bg-neutral-100 p-2 pl-6 text-xs font-normal text-neutral-700 opacity-0 shadow-md transition-opacity group-hover:opacity-100 group-active:opacity-100 sm:left-8 sm:-top-6"
           >
             <ul class="list-disc">
               <li>Use the arrows to move the posts up and down</li>

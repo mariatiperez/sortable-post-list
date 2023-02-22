@@ -12,66 +12,53 @@ const props = {
 };
 
 describe("Timeline", () => {
-  it("should render list properly with props", () => {
+  beforeEach(() => {
+    cy.fixture("timeline").as("timeline");
+  });
+
+  it("should render list properly with props", function () {
     cy.mount(Timeline, {
-      props,
+      props: { timeline: this.timeline },
     });
 
-    cy.get("[data-cy='timeline-item']").should(
+    cy.getBySelector("timeline-item").should(
       "have.length",
-      props.timeline.length
+      this.timeline.length
     );
 
     // first
-    cy.get("[data-cy='timeline-item']")
-      .first()
-      .find("[data-cy='travel-button']")
-      .should("exist");
-
-    //second
-    cy.get("[data-cy='timeline-item']")
-      .next()
-      .find("[data-cy='travel-button']")
-      .should("exist");
-
-    // last
-    cy.get("[data-cy='timeline-item']")
-      .last()
-      .find("[data-cy='travel-button']")
-      .should("exist");
+    cy.getBySelector("travel-button").should(
+      "have.length",
+      this.timeline.length
+    );
   });
 
-  it("should emit travel event", () => {
+  it("should emit travel event", function () {
     const travelEventSpy = cy.spy().as("travelEventSpy");
 
     cy.mount(Timeline, {
       props: {
-        ...props,
+        timeline: this.timeline,
         onTravel: travelEventSpy,
       },
     });
 
     // first
-    cy.get("[data-cy='travel-button']")
-      .first()
-      .click()
-      .then(() => {
-        expect(travelEventSpy).to.be.calledOnce.calledWith(0);
-      });
+    cy.clickButton("travel");
+    cy.clickButton("confirm", 0).then(() => {
+      expect(travelEventSpy).to.be.calledOnce.calledWith(0);
+    });
 
     // third
-    cy.get("[data-cy='travel-button']")
-      .and((button) => button.get(2).click())
-      .then(() => {
-        expect(travelEventSpy).to.be.calledTwice.calledWith(2);
-      });
+    cy.clickButton("travel", 2);
+    cy.clickButton("confirm", 0).then(() => {
+      expect(travelEventSpy).to.be.calledTwice.calledWith(2);
+    });
 
     // last
-    cy.get("[data-cy='travel-button']")
-      .last()
-      .click()
-      .then(() => {
-        expect(travelEventSpy).to.be.calledThrice.calledWith(4);
-      });
+    cy.clickButton("travel", this.timeline.length - 1);
+    cy.clickButton("confirm", 0).then(() => {
+      expect(travelEventSpy).to.be.calledThrice.calledWith(4);
+    });
   });
 });

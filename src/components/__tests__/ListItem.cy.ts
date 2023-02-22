@@ -11,39 +11,33 @@ describe("ListItem", () => {
     cy.mount(ListItem, {
       props,
     });
-    cy.get("[data-cy='cell-title']").should("contain", `Post ${props.id}`);
+    cy.checkCellTitle(0, props.id);
   });
 
   it("should render both buttons", () => {
     cy.mount(ListItem, { props });
-    cy.get("[data-cy='up-button'] > i").should("have.class", "fa-chevron-up");
-    cy.get("[data-cy='down-button'] > i").should(
-      "have.class",
-      "fa-chevron-down"
-    );
+    cy.getBySelector("up-button").should("exist");
+    cy.getBySelector("down-button").should("exist");
   });
 
   it("should only render up button", () => {
     cy.mount(ListItem, { props: { ...props, allowDown: false } });
-    cy.get("[data-cy='up-button'] > i").should("have.class", "fa-chevron-up");
-    cy.get("[data-cy='down-button']").should("not.exist");
+    cy.getBySelector("up-button").should("exist");
+    cy.getBySelector("down-button").should("not.exist");
   });
 
   it("should only render down button", () => {
     cy.mount(ListItem, { props: { ...props, allowUp: false } });
-    cy.get("[data-cy='down-button'] > i").should(
-      "have.class",
-      "fa-chevron-down"
-    );
-    cy.get("[data-cy='up-button']").should("not.exist");
+    cy.getBySelector("down-button").should("exist");
+    cy.getBySelector("up-button").should("not.exist");
   });
 
   it("shouldn't render any buttons", () => {
     cy.mount(ListItem, {
       props: { ...props, allowUp: false, allowDown: false },
     });
-    cy.get("[data-cy='up-button']").should("not.exist");
-    cy.get("[data-cy='down-button']").should("not.exist");
+    cy.getBySelector("up-button").should("not.exist");
+    cy.getBySelector("down-button").should("not.exist");
   });
 
   it("should emit move event", () => {
@@ -55,18 +49,14 @@ describe("ListItem", () => {
         onMove: moveEventSpy,
       },
     });
-    cy.get("[data-cy='up-button']")
-      .click()
-      .then(() => {
-        expect(moveEventSpy).to.be.calledOnce.calledWith({ direction: "up" });
-      });
+    cy.clickButton("up", 0).then(() => {
+      expect(moveEventSpy).to.be.calledOnce.calledWith({ direction: "up" });
+    });
 
-    cy.get("[data-cy='down-button']")
-      .click()
-      .then(() => {
-        expect(moveEventSpy).to.be.calledTwice.calledWith({
-          direction: "down",
-        });
+    cy.clickButton("down", 0).then(() => {
+      expect(moveEventSpy).to.be.calledTwice.calledWith({
+        direction: "down",
       });
+    });
   });
 });

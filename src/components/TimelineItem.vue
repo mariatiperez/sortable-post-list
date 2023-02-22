@@ -10,12 +10,14 @@
       <button
         @click="handleTravel"
         class="mr-2 w-10 min-w-fit self-center rounded bg-primary p-2 text-white"
+        data-cy="confirm-button"
       >
         <i class="fa-solid fa-check"></i>
       </button>
       <button
         @click="changeConfirmationVisibility(false)"
         class="w-10 min-w-fit self-center rounded bg-red-400 p-2 text-white"
+        data-cy="cancel-button"
       >
         <i class="fa-solid fa-xmark"></i>
       </button>
