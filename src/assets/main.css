@@ -1,24 +1,23 @@
-html, body, body>div {
+html,
+body,
+body > div {
   height: 100%;
 }
 html {
-  background-color: #f4f4f4
+  background-color: #f4f4f4;
 }
 
-#timeline::-webkit-scrollbar-track
-{
-	background-color: none;
-	border-radius: 8px;
+#timeline::-webkit-scrollbar-track {
+  background-color: none;
+  border-radius: 8px;
 }
 
-#timeline::-webkit-scrollbar
-{
-	width: 6px;
-	background-color: none;
+#timeline::-webkit-scrollbar {
+  width: 6px;
+  background-color: none;
 }
 
-#timeline::-webkit-scrollbar-thumb
-{
-	background-color: #AAA;
-	border-radius: 6px;
+#timeline::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border-radius: 6px;
 }

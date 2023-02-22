@@ -3,17 +3,14 @@
     class="mt-5 flex h-20 select-none flex-row justify-between rounded bg-white p-3 drop-shadow transition-all duration-300"
   >
     <span class="self-center" data-cy="cell-title"> Post {{ id }} </span>
-    <div
-      class="flex flex-col justify-center"
-      :class="allowUp && allowDown ? 'grid-rows-2' : 'grid-rows-1'"
-    >
+    <div class="flex flex-col justify-center">
       <button
         v-if="allowUp"
         class="flex rounded py-1 text-primary"
         @click="$emit('move', { direction: 'up' })"
         data-cy="up-button"
       >
-        <i class="fa-solid fa-chevron-up self-center"></i>
+        <i class="fa-solid fa-chevron-up self-center" />
       </button>
       <button
         v-if="allowDown"
@@ -21,7 +18,7 @@
         @click="$emit('move', { direction: 'down' })"
         data-cy="down-button"
       >
-        <i class="fa-solid fa-chevron-down self-center"></i>
+        <i class="fa-solid fa-chevron-down self-center" />
       </button>
     </div>
   </div>

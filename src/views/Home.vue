@@ -3,21 +3,23 @@
     class="grid h-min w-full grid-cols-1 justify-center gap-10 p-10 text-sm md:grid-cols-2 lg:gap-32"
   >
     <div class="h-min">
-      <h1 class="h-12 select-none text-lg font-medium text-white">
+      <h1
+        class="flex h-12 select-none items-center text-lg font-medium text-white"
+      >
         Sortable Post List
-        <span class="group relative">
+        <span class="group relative ml-2">
           <div class="inline cursor-pointer">
             <i class="fa-solid fa-circle-question" />
           </div>
           <div
-            class="tooltip-arrow pointer-events-none absolute top-7 -left-32 z-10 w-64 rounded-md border-transparent bg-neutral-100 p-2 pl-6 text-xs font-normal text-neutral-700 opacity-0 shadow-md transition-opacity group-hover:opacity-100 group-active:opacity-100 sm:left-8 sm:-top-6"
+            class="pointer-events-none absolute top-7 -left-32 z-10 w-64 rounded-md border-transparent bg-neutral-100 p-2 pl-6 text-xs font-normal text-neutral-700 opacity-0 shadow-md transition-opacity group-hover:opacity-100 group-active:opacity-100 sm:left-8 sm:-top-6"
           >
             <ul class="list-disc">
               <li>Use the arrows to move the posts up and down</li>
               <li>
                 Click on Time Travel to rewind the posts as it was before that
-                action was taken and remove the clicked card and the cards above
-                that.
+                action was taken. This will remove the clicked card and the
+                cards above that.
               </li>
             </ul>
           </div>
@@ -38,11 +40,11 @@ import { ref, onMounted } from "vue";
 import type { ListItemI, MoveI, TimelineItemI } from "@/types";
 import { getList } from "@/api";
 
-const loading = ref<boolean>(true);
+const loading = ref(true);
 const list = ref<ListItemI[]>([]);
 const timeline = ref<TimelineItemI[]>([]);
 const currState = ref<number[]>([]);
-let listById: { [id: number]: ListItemI } = {};
+let listById: Record<number, ListItemI> = {};
 
 onMounted(async () => {
   list.value = await getList();

@@ -2,7 +2,7 @@
   <div
     v-if="list.length == 0"
     data-cy="empty-list-message"
-    class="mb-5 flex h-10 flex-row justify-between rounded bg-white p-3 drop-shadow transition-all duration-300"
+    class="mb-5 flex h-20 flex-row items-center justify-between rounded bg-white p-3 drop-shadow"
   >
     <span>
       Something happened, we don't have any posts to display
@@ -12,7 +12,7 @@
   <TransitionGroup tag="ul" v-else>
     <ListItem
       v-for="(item, index) in list"
-      :key="item.id"
+      :key="`item-${item.id}`"
       :id="item.id"
       :allow-up="index !== 0"
       :allow-down="index < list.length - 1"
