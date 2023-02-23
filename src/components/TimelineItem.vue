@@ -9,6 +9,8 @@
       Moved Post {{ itemId }} from index {{ prevIndex }} to index
       {{ currIndex }}
     </p>
+
+    <!-- Action buttons -->
     <div class="relative mx-auto h-9 w-24">
       <Transition name="switch">
         <div

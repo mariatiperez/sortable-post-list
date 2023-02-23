@@ -1,15 +1,4 @@
-import type { TimelineItemI } from "@/types";
 import Timeline from "../Timeline.vue";
-
-const props = {
-  timeline: [
-    { itemId: 3, prevIndex: 3, currIndex: 2 },
-    { itemId: 1, prevIndex: 0, currIndex: 1 },
-    { itemId: 2, prevIndex: 1, currIndex: 2 },
-    { itemId: 3, prevIndex: 2, currIndex: 3 },
-    { itemId: 5, prevIndex: 4, currIndex: 3 },
-  ] as TimelineItemI[],
-};
 
 describe("Timeline", () => {
   beforeEach(() => {
@@ -26,7 +15,6 @@ describe("Timeline", () => {
       this.timeline.length
     );
 
-    // first
     cy.getBySelector("travel-button").should(
       "have.length",
       this.timeline.length

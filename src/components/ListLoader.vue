@@ -6,7 +6,10 @@
     <div
       class="flex h-full w-full animate-pulse flex-row justify-between align-middle"
     >
+      <!-- Cell title -->
       <div class="h-6 w-14 self-center rounded bg-slate-100" />
+
+      <!-- Action buttons -->
       <div class="flex flex-col justify-center">
         <div
           v-if="n > 1 && n < 5"

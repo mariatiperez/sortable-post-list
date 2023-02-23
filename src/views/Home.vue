@@ -8,6 +8,8 @@
           class="flex h-12 select-none text-lg font-medium text-white xs:items-center"
         >
           Sortable Post List
+
+          <!-- Help Tooltip -->
           <div class="group relative ml-2">
             <i class="fa-solid fa-circle-question inline cursor-pointer" />
             <ol
@@ -67,7 +69,7 @@ onMounted(async () => {
 });
 
 const handleMove = ({ direction = "down", index: prevIndex, item }: MoveI) => {
-  const currIndex = prevIndex + (direction === "down" ? 1 : -1);
+  const currIndex = prevIndex + (direction === "down" ? 1 : -1); // Target index to move the item to
 
   if (currIndex < 0) throw "This item is already at the top of the list";
   if (currIndex >= list.value.length)
@@ -101,6 +103,8 @@ const handleTravel = async (index: number) => {
 
   // Order list to match with targetState
   list.value = targetState.map((id) => listById[id]);
+
+  // Update timeline and state
   timeline.value.splice(0, index + 1);
   currState.value = targetState;
 

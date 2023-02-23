@@ -1,4 +1,3 @@
-import type { ListItemI } from "@/types";
 import Home from "../Home.vue";
 
 describe("Home", () => {

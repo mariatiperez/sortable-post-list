@@ -9,9 +9,10 @@
     </h2>
     <div class="flex max-h-[480px] min-h-[70px] items-center p-2 sm:p-6">
       <Transition name="switch">
-        <div
+        <!-- Empty timeline message -->
+        <p
           v-if="timeline.length == 0"
-          class="flex h-full w-full flex-col text-center"
+          class="flex h-full w-full select-none flex-col text-center"
         >
           No actions to display <br />
           <span>
@@ -19,11 +20,13 @@
             <i class="fa-solid fa-circle-question text-primary" /> to see the
             instructions
           </span>
-        </div>
+        </p>
+
+        <!-- Timeline -->
         <div
           v-else
-          class="relative max-h-[430px] min-h-[70px] w-full overflow-y-auto overflow-x-clip"
           id="timeline"
+          class="relative max-h-[430px] min-h-[70px] w-full overflow-y-auto overflow-x-clip"
         >
           <TransitionGroup name="fade" tag="ul">
             <TimelineItem
