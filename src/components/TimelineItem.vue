@@ -2,13 +2,13 @@
   <li
     class="h-30 flex w-full select-none flex-col content-center justify-between bg-white p-3 shadow drop-shadow xs:h-16 xs:flex-row"
   >
-    <span
+    <p
       data-cy="timeline-cell-title"
-      class="w-full self-center xs:mb-0 xs:w-4/6"
+      class="mb-2 w-full self-center xs:mb-0 xs:mr-2 xs:w-4/6"
     >
       Moved Post {{ itemId }} from index {{ prevIndex }} to index
       {{ currIndex }}
-    </span>
+    </p>
     <div class="relative mx-auto h-9 w-24">
       <Transition name="switch">
         <div
