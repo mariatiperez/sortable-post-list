@@ -1,8 +1,8 @@
 # sortable-post-list
 
-Simple sortable list with Vue 3 and TailwindCss
+Awesome sortable post list made with Vue 3 and TailwindCss. Now live [here!](https://aspl1.netlify.app/)
 
-## Todo
+## Functional Requirements
 
 - [x] Only the first 5 posts should be displayed.
 - [x] Cell titles should be named as `Post id`, where `id` is set by the `id` of a post on [https://jsonplaceholder.typicode.com/posts](https://jsonplaceholder.typicode.com/posts), e.g. `Post 1`.
@@ -11,24 +11,30 @@ Simple sortable list with Vue 3 and TailwindCss
   - e.g. When a user moves the `Post 1` below `Post 2`, then an action card saying “Moved `Post 1` from `index 0` to `index 1`” should be added to the top of the list.
 - [x] Users can can click on the “Time travel” button on one of the action cards, which rewinds the order of the posts as it was before that action was taken. This action should also remove the clicked action card and the action cards above that.
 
-## Recommended IDE Setup
+## Folder Structure
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+```sh
+src/
+├───api # Call to api functions
+├───assets
+│   ├───css # Font Awesome CSS
+│   └───webfonts # Font Awesome webfonts
+│   ├───base.css
+│   └───main.css
+│   └───tailwind.css
+├───components
+│   └───__tests__ # Tests for each component
+│   └───ListItem.vue # Single post
+│   └───LisLoader.vue # Loader for the posts list
+│   └───SortableList.vue # Posts list
+│   └───Timeline.vue # List of actions committed
+│   └───TimelineItem.vue # Single action committed
+├───types
+└───views
+    └───__tests__ # Tests for main view
+    └───Home.vue # Main view
 
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+```
 
 ## Project Setup
 
@@ -42,36 +48,8 @@ npm install
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
 ### Run Headed Component Tests with [Cypress Component Testing](https://on.cypress.io/component)
 
 ```sh
-npm run test:unit:dev # or `npm run test:unit` for headless testing
-```
-
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
-
-```sh
-npm run test:e2e:dev
-```
-
-This runs the end-to-end tests against the Vite development server.
-It is much faster than the production build.
-
-But it's still recommended to test the production build with `test:e2e` before deploying (e.g. in CI environments):
-
-```sh
-npm run build
-npm run test:e2e
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
+npm run test:unit:dev
 ```
