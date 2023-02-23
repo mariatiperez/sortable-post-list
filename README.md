@@ -14,6 +14,12 @@ Awesome sortable post list made with Vue 3 and TailwindCss. Now live [here!](htt
 ## Folder Structure
 
 ```sh
+cypress/
+├───fixtures
+│   ├───postsList.json # Posts mock data
+│   ├───timeline.json # Timeline mock data
+├───support
+│   ├───commands.ts # Custom commands for testing
 src/
 ├───api # Call to api functions
 ├───assets
