@@ -1,8 +1,8 @@
 <template>
-  <article
-    class="flex min-h-fit w-full select-none flex-row content-center justify-between bg-white p-3 shadow drop-shadow sm:h-16"
+  <li
+    class="flex h-24 w-full select-none flex-row content-center justify-between bg-white p-3 shadow drop-shadow xs:h-16"
   >
-    <span data-cy="timeline-cell-title" class="mr-2 self-center">
+    <span data-cy="timeline-cell-title" class="mr-2 w-3/6 self-center">
       Moved Post {{ itemId }} from index {{ prevIndex }} to index
       {{ currIndex }}
     </span>
@@ -20,7 +20,6 @@
             <i class="fa-solid fa-check" />
           </button>
           <button
-            v-if="displayConfirmationDialog"
             data-cy="cancel-button"
             class="h-9 w-11 min-w-fit self-center rounded bg-red-400 p-2 text-white"
             @click="changeConfirmationVisibility(false)"
@@ -39,7 +38,7 @@
         </div>
       </Transition>
     </div>
-  </article>
+  </li>
 </template>
 
 <script setup lang="ts">
