@@ -9,6 +9,9 @@ const apiClient: AxiosInstance = axios.create({
   },
 });
 
+/**
+ * @description Get posts list
+ */
 export const getList = async () => {
   try {
     return (await apiClient.get<ListItemI[]>("/posts")).data?.slice(0, 5);

@@ -24,7 +24,7 @@
         class="relative max-h-[430px] min-h-[70px] w-full overflow-y-auto overflow-x-clip"
         id="timeline"
       >
-        <TransitionGroup name="fade">
+        <TransitionGroup name="fade" tag="ul">
           <TimelineItem
             v-for="(item, index) in timeline"
             data-cy="timeline-item"

@@ -8,7 +8,7 @@
       Something happened, we don't have any posts to display
       <img class="ml-2 inline h-10" src="/cat.png" alt="Sad Cat" srcset="" />
     </article>
-    <TransitionGroup tag="ul" v-else>
+    <TransitionGroup tag="ul" v-else name="swap">
       <ListItem
         v-for="(item, index) in list"
         data-cy="list-item"
@@ -30,3 +30,12 @@ defineProps<{
   list: Array<ListItemI>;
 }>();
 </script>
+
+<style lang="css" scoped>
+.swap-move,
+.swap-enter-active,
+.swap-leave-active {
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  backface-visibility: hidden;
+}
+</style>

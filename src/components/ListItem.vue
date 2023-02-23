@@ -1,5 +1,5 @@
 <template>
-  <article
+  <li
     class="mt-5 flex h-20 select-none flex-row justify-between rounded bg-white p-3 text-lg drop-shadow transition-all duration-300"
   >
     <span data-cy="cell-title" class="self-center"> Post {{ id }} </span>
@@ -21,7 +21,7 @@
         <i class="fa-solid fa-chevron-down self-center" />
       </button>
     </div>
-  </article>
+  </li>
 </template>
 
 <script setup lang="ts">
