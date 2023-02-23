@@ -29,6 +29,7 @@ html {
 
 .switch-leave-active {
   opacity: 0;
+  position: absolute;
 }
 
 .switch-enter-from {
