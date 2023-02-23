@@ -10,7 +10,7 @@ module.exports = {
 
     },
     fontFamily: {
-      Roboto: ["Roboto, sans-serif"]
+      Poppins: ["Open+sans, sans-serif"]
     },
 
     screens: {

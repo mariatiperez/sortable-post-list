@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center font-Roboto">
+  <div class="font-Open+sans flex justify-center">
     <div
       class="z-10 grid h-min w-full grid-cols-1 justify-center gap-10 p-10 text-sm md:grid-cols-2 lg:gap-32"
     >
