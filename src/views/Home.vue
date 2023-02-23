@@ -5,7 +5,7 @@
     >
       <div class="h-min">
         <h1
-          class="flex h-12 select-none items-center text-lg font-medium text-white"
+          class="flex h-12 select-none text-lg font-medium text-white xs:items-center"
         >
           Sortable Post List
           <div class="group relative ml-2">
@@ -27,9 +27,18 @@
       </div>
       <Timeline :timeline="timeline" @travel="handleTravel" />
     </div>
-    <div
-      class="diagonal-background absolute top-0 z-0 min-h-[50%] w-full transition-all duration-300 xs:min-h-[25%] md:min-h-[25%] lg:min-h-[20%]"
-    />
+    <div class="absolute z-0 w-full">
+      <svg
+        x="0px"
+        y="0px"
+        width="100%"
+        height="30rem"
+        preserveAspectRatio="none"
+        viewBox="0 0 310 310"
+      >
+        <polyline fill="#6357b1" points="0,0 0,150 310,0" />
+      </svg>
+    </div>
   </div>
 </template>
 
@@ -100,9 +109,3 @@ const handleTravel = async (index: number) => {
   document.getElementById("timeline")?.scrollTo({ top: 0, behavior: "smooth" });
 };
 </script>
-
-<style lang="css" scoped>
-.diagonal-background {
-  background: linear-gradient(to right bottom, #6357b1 50%, #f4f4f4 50%);
-}
-</style>
