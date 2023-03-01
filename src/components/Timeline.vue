@@ -23,27 +23,27 @@
         </p>
 
         <!-- Timeline -->
-        <div
+        <TransitionGroup
           v-else
           id="timeline"
-          class="relative max-h-[430px] min-h-[70px] w-full overflow-y-auto overflow-x-clip"
+          tag="ul"
+          name="fade"
+          class="relative max-h-[435px] min-h-[70px] w-full overflow-y-auto overflow-x-clip"
         >
-          <TransitionGroup name="fade" tag="ul">
-            <TimelineItem
-              v-for="(item, index) in timeline"
-              data-cy="timeline-item"
-              :key="`timeline-item-${item.itemId}-${item.timestamp}`"
-              :item-id="item.itemId"
-              :prev-index="item.prevIndex"
-              :curr-index="item.currIndex"
-              :class="{
-                'rounded-t': index === 0,
-                'rounded-b': index === timeline.length - 1,
-              }"
-              @travel="$emit('travel', index)"
-            />
-          </TransitionGroup>
-        </div>
+          <TimelineItem
+            v-for="(item, index) in timeline"
+            data-cy="timeline-item"
+            :key="`timeline-item-${item.itemId}-${item.timestamp}`"
+            :item-id="item.itemId"
+            :prev-index="item.prevIndex"
+            :curr-index="item.currIndex"
+            :class="{
+              'rounded-t': index === 0,
+              'rounded-b': index === timeline.length - 1,
+            }"
+            @travel="$emit('travel', index)"
+          />
+        </TransitionGroup>
       </Transition>
     </div>
   </section>

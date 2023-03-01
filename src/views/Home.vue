@@ -5,7 +5,7 @@
     >
       <div class="h-min">
         <h1
-          class="flex h-12 select-none text-lg font-medium text-white xs:items-center"
+          class="flex h-16 select-none text-lg font-medium text-white xs:items-center"
         >
           Sortable Post List
 

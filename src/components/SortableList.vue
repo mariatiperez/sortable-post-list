@@ -3,12 +3,16 @@
     <article
       v-if="list.length == 0"
       data-cy="empty-list-message"
-      class="mb-5 flex h-20 flex-row items-center rounded bg-white p-3 drop-shadow"
+      class="flex h-20 flex-row items-center rounded bg-white p-3 drop-shadow"
     >
       Something happened, we don't have any posts to display
       <img class="ml-2 inline h-10" src="/cat.png" alt="Sad Cat" srcset="" />
     </article>
-    <TransitionGroup tag="ul" v-else name="swap">
+    <TransitionGroup
+      tag="ul"
+      name="swap"
+      class="flex h-[480px] flex-col justify-between"
+    >
       <ListItem
         v-for="(item, index) in list"
         data-cy="list-item"
