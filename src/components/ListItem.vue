@@ -6,30 +6,32 @@
 
     <!-- Action buttons -->
     <div class="flex flex-col justify-center">
-      <button
+      <IconButton
         v-if="allowUp"
-        data-cy="up-button"
-        class="flex rounded py-1 text-primary"
-        @click="$emit('move', { direction: 'up' })"
-      >
-        <i class="fa-solid fa-chevron-up self-center" />
-      </button>
-      <button
+        name="up"
+        icon="chevron-up"
+        @click="handleMove('up')"
+      />
+      <IconButton
         v-if="allowDown"
-        data-cy="down-button"
-        class="flex rounded py-1 text-primary"
-        @click="$emit('move', { direction: 'down' })"
-      >
-        <i class="fa-solid fa-chevron-down self-center" />
-      </button>
+        name="down"
+        icon="chevron-down"
+        @click="handleMove('down')"
+      />
     </div>
   </li>
 </template>
 
 <script setup lang="ts">
+import IconButton from "./IconButton.vue";
+
 defineProps<{
   id: number;
   allowUp: boolean;
   allowDown: boolean;
 }>();
+
+const emit = defineEmits(["move"]);
+
+const handleMove = (direction: string) => emit("move", { direction });
 </script>

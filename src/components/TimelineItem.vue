@@ -14,23 +14,23 @@
     <div class="relative mx-auto h-9 w-24 xs:m-0">
       <Transition name="switch">
         <div
-          v-if="displayConfirmationDialog"
+          v-if="displayConfirmation"
           class="flex w-24 flex-row justify-evenly xs:justify-between"
         >
-          <button
-            data-cy="confirm-button"
-            class="w-11 self-center rounded bg-primary p-2 text-white"
+          <IconButton
+            name="confirm"
+            icon="check"
+            :rounded="false"
+            class="bg-primary"
             @click="handleTravel"
-          >
-            <i class="fa-solid fa-check" />
-          </button>
-          <button
-            data-cy="cancel-button"
-            class="w-11 self-center rounded bg-red-400 p-2 text-white"
+          />
+          <IconButton
+            name="cancel"
+            icon="xmark"
+            :rounded="false"
+            class="bg-red-400"
             @click="changeConfirmationVisibility(false)"
-          >
-            <i class="fa-solid fa-xmark" />
-          </button>
+          />
         </div>
         <button
           v-else
@@ -47,6 +47,8 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import IconButton from "./IconButton.vue";
+
 defineProps<{
   itemId: number;
   prevIndex: number;
@@ -54,10 +56,10 @@ defineProps<{
 }>();
 
 const emit = defineEmits(["travel"]);
-const displayConfirmationDialog = ref(false);
+const displayConfirmation = ref(false);
 
 const changeConfirmationVisibility = (display: boolean) => {
-  displayConfirmationDialog.value = display;
+  displayConfirmation.value = display;
 };
 
 const handleTravel = () => {
